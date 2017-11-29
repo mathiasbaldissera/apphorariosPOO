@@ -1,20 +1,88 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+
+    <style name="GreenTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorAccent">@color/darkGreen</item>
+        <item name="homeAsUpIndicator">@mipmap/back_arrow</item>
+        <item name="roundedDrawable">@drawable/rounded_green_shape</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="GreenTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="BlueTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorAccent">@color/darkBlue</item>
+        <item name="homeAsUpIndicator">@mipmap/back_arrow</item>
+        <item name="roundedDrawable">@drawable/rounded_blue_shape</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="BlueTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
+    <style name="RedTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorAccent">@color/darkRed</item>
+        <item name="homeAsUpIndicator">@mipmap/back_arrow</item>
+        <item name="roundedDrawable">@drawable/rounded_red_shape</item>
+    </style>
+
+    <style name="RedTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="PurpleTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/purple</item>
+        <item name="colorAccent">@color/darkPurple</item>
+        <item name="homeAsUpIndicator">@mipmap/back_arrow</item>
+        <item name="roundedDrawable">@drawable/rounded_purple_shape</item>
+    </style>
+
+    <style name="PurpleTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="OrangeTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryDark">@color/orange</item>
+        <item name="colorAccent">@color/darkOrange</item>
+        <item name="homeAsUpIndicator">@mipmap/back_arrow</item>
+        <item name="roundedDrawable">@drawable/rounded_orange_shape</item>
+    </style>
+    <style name="OrangeTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="SlideUpAnimation">
+        <item name="android:windowEnterAnimation">@anim/show_up_animation</item>
+        <item name="android:windowExitAnimation">@anim/close_down_animation</item>
+
+    </style>
+
+
+    <style name="GreenTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="GreenTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">?attr/colorPrimary</item>
+    </style>
+    <style name="CustomCheckBox.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

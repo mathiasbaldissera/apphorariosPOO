@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_aulas_dias_rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/view_aulas_dias_llColorHoras"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:background="?attr/roundedDrawable"
+            android:gravity="center_vertical|center_horizontal"
+            android:minWidth="50dp"
+            android:orientation="vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="8dp">
+
+
+            <TextView
+                android:id="@+id/view_aulas_dias_hrInicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|fill_vertical|center_horizontal"
+                android:text="00:00"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/view_aulas_dias_hrTermino"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical|fill_vertical|center_horizontal"
+                android:text="00:00"
+                android:textColor="@android:color/background_light"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <TextView
+                android:id="@+id/view_aulas_nome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="nome"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/view_aulas_sala"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sala"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/view_aulas_profe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="profe"
+                android:textAppearance="@style/TextAppearance.AppCompat" />
+
+            <TextView
+                android:id="@+id/view_aulas_turma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tur"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/darker_gray" />
+</LinearLayout>

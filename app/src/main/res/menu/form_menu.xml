@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.unipampa.poo.apphorariospoo.TelaInicial">
+    <item
+        android:id="@+id/form_disciplinas_confirm"
+        android:checkable="false"
+        android:enabled="true"
+        android:icon="@mipmap/confirm"
+        android:orderInCategory="100"
+        android:visible="true"
+        app:showAsAction="always"
+        android:title="" />
+</menu>

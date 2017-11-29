@@ -4,21 +4,44 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/GreenTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".TelaInicial"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/GreenTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FormDisciplinas"
+            android:label="@string/title_activity_form_disciplinas"
+            android:theme="@style/GreenTheme.NoActionBar"></activity>
+
+
+
+        <receiver android:name=".service.OnBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".service.OnAlarmReceiver" >
+        </receiver><receiver android:name=".service.OnDiscAddReceiver" >
+    </receiver>
+
+        <service android:name=".service.TaskButlerService" >
+        </service>
     </application>
+
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
 </manifest>
