@@ -3,6 +3,7 @@ package com.unipampa.poo.apphorariospoo.views;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -11,11 +12,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.unipampa.poo.apphorariospoo.BundleUtils;
 import com.unipampa.poo.apphorariospoo.FormDisciplinas;
 import com.unipampa.poo.apphorariospoo.R;
+import com.unipampa.poo.apphorariospoo.TabDia;
+import com.unipampa.poo.apphorariospoo.dominio.GerenciadorDeDisciplinas;
 
 /**
  * Created by mathias on 11/11/17.
@@ -24,6 +26,7 @@ import com.unipampa.poo.apphorariospoo.R;
 public class PopupInfoAulas extends DialogFragment {
     private ImageButton backButton, editButton, deleteButton;
     private TextView nome, hrTermino, hrInicio, professor, dia, sala, turma, curso, semestre;
+    AlertDialog dialog;
 
     public static PopupInfoAulas newInstance(Bundle bundle) {
         PopupInfoAulas fragment = new PopupInfoAulas();
@@ -38,16 +41,10 @@ public class PopupInfoAulas extends DialogFragment {
         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LinearLayout viewGroup = getActivity().findViewById(R.id.view_info_aulas_rootView);
         View layout = inflater.inflate(R.layout.popup_info_aulas, viewGroup);
-      /*  //take theme
-        TypedValue typedValue = new TypedValue();
-        if (getActivity().getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true)) {
-            RelativeLayout relativeLayout = layout.findViewById(R.id.view_info_aulas_RLTop);
-            relativeLayout.setBackgroundColor(typedValue.data);
-        }
-       */ //create dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(layout);
         AlertDialog dialog = builder.create();
+        this.dialog = dialog;
         //buttons
         backButton = layout.findViewById(R.id.view_info_aulas_back);
         editButton = layout.findViewById(R.id.view_info_aulas_edit);
@@ -74,7 +71,7 @@ public class PopupInfoAulas extends DialogFragment {
         semestre.setText(arguments.getString(BundleUtils.semestre.toString()));
 
 
-        String stringDia="";
+        String stringDia = "";
         switch (arguments.getInt(BundleUtils.dia.toString())) {
             case 0:
                 stringDia = "Segunda-feira";
@@ -89,10 +86,10 @@ public class PopupInfoAulas extends DialogFragment {
                 stringDia = "Quinta-feira";
                 break;
             case 4:
-                stringDia="Sexta-feira";
+                stringDia = "Sexta-feira";
                 break;
             case 5:
-                stringDia="Sábado";
+                stringDia = "Sábado";
                 break;
         }
 
@@ -119,7 +116,7 @@ public class PopupInfoAulas extends DialogFragment {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                Intent intent  = new Intent(getActivity(), FormDisciplinas.class);
+                Intent intent = new Intent(getActivity(), FormDisciplinas.class);
                 intent.putExtras(getArguments());
                 getActivity().startActivity(intent);
 
@@ -129,8 +126,30 @@ public class PopupInfoAulas extends DialogFragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(getActivity(), "Função nao implementada", Toast.LENGTH_SHORT);
-                toast.show();
+                final CharSequence[] items = {"Uma aula", "A disciplina inteira"};
+                final AlertDialog.Builder builder = new AlertDialog.Builder(PopupInfoAulas.this.getActivity());
+                builder.setTitle("O que você deseja deletar?")
+                        .setPositiveButton("Esta aula apenas", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                GerenciadorDeDisciplinas.getInstance(PopupInfoAulas.this.getActivity())
+                                        .deletarAulaByHashCode(getArguments().getInt(BundleUtils.hashCodeAula.toString()));
+                                dialog.dismiss();
+                            }
+                        })
+                        .setNegativeButton("A disciplina inteira", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                GerenciadorDeDisciplinas.getInstance(PopupInfoAulas.this.getActivity())
+                                        .deletarDisciplinaByHashCode(getArguments().getInt(BundleUtils.hashCodeDisciplina.toString()));
+                                dialog.dismiss();
+
+                            }
+                        })
+                        .setNeutralButton("Cancelar", null)
+                        .show();
+
+
             }
         });
 

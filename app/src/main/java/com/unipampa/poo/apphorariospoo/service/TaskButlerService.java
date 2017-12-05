@@ -40,6 +40,13 @@ public class TaskButlerService extends WakefulIntentService {
             currentDate.setTime(new Date());
 
             if (n == null) {
+                Calendar meiaNoite = Calendar.getInstance();
+                meiaNoite.set(Calendar.HOUR, 0);
+                meiaNoite.set(Calendar.MINUTE,1);
+                meiaNoite.set(Calendar.SECOND,0);
+                Intent it = new Intent(this, OnDiscAddReceiver.class);
+                PendingIntent alarmIntent = PendingIntent.getBroadcast(this, 0, it, 0);
+                alarmManager.set(AlarmManager.RTC_WAKEUP, meiaNoite.getTimeInMillis(), alarmIntent);
                 super.onHandleIntent(intent);
                 return;
             }
