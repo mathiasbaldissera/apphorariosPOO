@@ -32,6 +32,7 @@ public class Disciplina implements Serializable {
         this.aulas = aulas;
     }
 
+
     public String getNome() {
         return nome;
     }
@@ -104,6 +105,15 @@ public class Disciplina implements Serializable {
             }
         }
         return null;
+    }
+
+    public boolean deletarAulaByHashCode(int hashCode) {
+        for (Aulas aula : aulas) {
+            if (aula.hashCode() == hashCode) {
+                return aulas.remove(aula);
+            }
+        }
+        return false;
     }
 
     public boolean equalsHashCode(int hashCode) {

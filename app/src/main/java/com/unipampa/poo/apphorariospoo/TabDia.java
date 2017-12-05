@@ -69,6 +69,7 @@ public class TabDia extends Fragment {
                 bundle.putString(BundleUtils.curso.toString(), disciplina.getCurso());
                 bundle.putString(BundleUtils.semestre.toString(), disciplina.getSemestre());
                 bundle.putInt(BundleUtils.hashCodeDisciplina.toString(), disciplina.hashCode());
+                bundle.putInt(BundleUtils.hashCodeAula.toString(), aula.hashCode());
 
                 vad.add(ViewAulasDias.newInstance(getActivity(), bundle));
             }

@@ -136,19 +136,39 @@ public class GerenciadorDeDisciplinas {
         }
     }
 
+    public void deletarAulaByHashCode(int aulaHashCode) {
+        for (Disciplina disciplina : disciplinas) {
+
+            if (disciplina.deletarAulaByHashCode(aulaHashCode)) {
+                salvar();
+                break;
+            }
+        }
+    }
+
+    public boolean deletarDisciplinaByHashCode(int hashCode) {
+        for (Disciplina disciplina : disciplinas) {
+            if (disciplina.hashCode() == hashCode) {
+                salvar();
+                return disciplinas.remove(disciplina);
+            }
+        }
+
+        return false;
+    }
 
     public Notificacao getProximaNotificacao() {
-       Notificacao notificacaoDeRetorno=null;
+        Notificacao notificacaoDeRetorno = null;
         for (Disciplina disc : disciplinas) {
-                Aulas aula = disc.getProximaAula();
-            if (notificacaoDeRetorno==null && aula!=null){
-                notificacaoDeRetorno=new Notificacao(disc.getNome(), disc.getProximaAula());
-            }else if (aula!=null){
-                Log.d("de retorno",notificacaoDeRetorno.toString());
+            Aulas aula = disc.getProximaAula();
+            if (notificacaoDeRetorno == null && aula != null) {
+                notificacaoDeRetorno = new Notificacao(disc.getNome(), disc.getProximaAula());
+            } else if (aula != null) {
+                Log.d("de retorno", notificacaoDeRetorno.toString());
                 Notificacao notificacao = new Notificacao(disc.getNome(), disc.getProximaAula());
                 Log.d("n de retorno", notificacao.toString());
-                if (notificacaoDeRetorno.compareTo(notificacao)==-1){
-                    notificacaoDeRetorno=notificacao;
+                if (notificacaoDeRetorno.compareTo(notificacao) == -1) {
+                    notificacaoDeRetorno = notificacao;
                 }
             }
         }

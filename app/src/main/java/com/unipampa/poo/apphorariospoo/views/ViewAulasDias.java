@@ -48,14 +48,7 @@ public class ViewAulasDias extends LinearLayout implements Comparable<ViewAulasD
         rootView = findViewById(R.id.view_aulas_dias_rootView);
         hrI = Horario.parseHorario(data.getString("hrInicio"));
         hrT = Horario.parseHorario(data.getString("hrTermino"));
-  /*      TypedValue typedValue = new TypedValue();
-        if (activity.getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true)) {
-            LinearLayout ll = findViewById(R.id.view_aulas_dias_llColorHoras);
-            Drawable m = activity.getResources().getDrawable(R.drawable.rounded_orange_shape);
-            m.setColorFilter(typedValue.data, PorterDuff.Mode.MULTIPLY);
-            ll.setBackground(m);
-        }
-*/
+
         nome = findViewById(R.id.view_aulas_nome);
         sala = findViewById(R.id.view_aulas_sala);
         professor =findViewById(R.id.view_aulas_profe);
